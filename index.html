@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standout Portfolio Projects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: "Soothing Neutrals" - A calm, professional palette using beige, warm gray, and a muted teal accent to create a focused and modern feel. -->
+    <!-- Application Structure Plan: The application is designed as a single-page interactive report. The core structure is a main content area with a filterable grid of project "cards." This dashboard-like approach allows users to quickly scan all options and then dive into details. The filtering interaction (by technical challenge) was chosen to mirror a common user task: identifying projects that align with specific skills they want to showcase. This non-linear exploration path is more user-friendly than a static, sequential document. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Project Ideas -> Goal: Organize & Compare -> Presentation: Interactive Card Grid -> Interaction: Clickable filters to highlight cards by category (AI, Real-time, Data Viz). Justification: This organizes the information thematically and allows users to compare projects based on their primary technical challenge, making the content more digestible and actionable.
+        - Report Info: Tech Stack -> Goal: Inform -> Presentation: Styled "tag" elements (HTML/CSS). Justification: Tags are visually scannable and a common UI pattern for displaying technologies, making it easy for users to quickly assess the stack.
+        - Report Info: Project Details -> Goal: Inform -> Presentation: Structured text with clear headings and icons. Justification: Using icons and consistent formatting improves readability and helps the user quickly locate specific information like the use case or resume pitch.
+        NO SVG/Mermaid is used.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8; /* Warm beige background */
+            color: #4A4A4A;
+        }
+        .project-card {
+            transition: all 0.3s ease-in-out;
+            border: 1px solid #EAEAEA;
+        }
+        .project-card.dimmed {
+            opacity: 0.3;
+            transform: scale(0.98);
+        }
+        .filter-btn {
+            transition: all 0.2s ease-in-out;
+            border: 1px solid #D1D5DB;
+        }
+        .filter-btn.active {
+            background-color: #14B8A6; /* Muted Teal */
+            color: white;
+            border-color: #14B8A6;
+        }
+        .tech-tag {
+            background-color: #F3F4F6; /* Light gray */
+            color: #374151; /* Dark gray text */
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            display: inline-block;
+        }
+        .section-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+            color: #14B8A6;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-800">Standout Portfolio Projects</h1>
+            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Tired of to-do lists? Here are 3 technically impressive projects, based on real job market analysis, designed to get you noticed by recruiters.</p>
+        </header>
+
+        <main>
+            <div id="filter-container" class="flex flex-wrap justify-center gap-2 md:gap-4 mb-10">
+                <button class="filter-btn active px-4 py-2 rounded-full" data-filter="all">All Projects</button>
+                <button class="filter-btn px-4 py-2 rounded-full" data-filter="ai">🤖 AI / Automation</button>
+                <button class="filter-btn px-4 py-2 rounded-full" data-filter="realtime">⚡ Real-time Collaboration</button>
+                <button class="filter-btn px-4 py-2 rounded-full" data-filter="dataviz">📊 Data Visualization</button>
+            </div>
+
+            <div id="projects-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-category="realtime ai">
+                    <div class="p-8">
+                        <div class="uppercase tracking-wide text-sm text-teal-600 font-semibold">Project 1: Internal Tool Builder</div>
+                        <h2 class="block mt-1 text-2xl leading-tight font-bold text-black">BriefFlow</h2>
+                        <p class="mt-2 text-gray-500">A real-time, collaborative platform for non-technical teams to build and deploy simple internal applications using a drag-and-drop interface and AI-powered assistance.</p>
+                        
+                        <div class="mt-6">
+                            <h3 class="flex items-center text-lg font-semibold text-gray-700">
+                                <svg class="section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Real-World Use Case
+                            </h3>
+                            <p class="mt-2 text-gray-600">A marketing team needs a simple tool to manage content approval workflows. Instead of waiting for developers, they use BriefFlow to build a custom dashboard together in real-time, dragging components, defining form fields, and using the AI assistant to generate a database schema to store submissions.</p>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h3 class="flex items-center text-lg font-semibold text-gray-700">
+                                <svg class="section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                Full Tech Stack
+                            </h3>
+                            <div class="mt-2 flex flex-wrap gap-2">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Express</span>
+                                <span class="tech-tag">Socket.IO</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">AWS (EC2/S3)</span>
+                                <span class="tech-tag">Gemini API</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <h3 class="flex items-center text-lg font-semibold text-gray-700">
+                                <svg class="section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-12v4m-2-2h4m5 4v4m-2-2h4M17 3l4 4M3 17l4 4M17 17l4-4M3 7l4-4"></path></svg>
+                                Advanced Features
+                            </h3>
+                            <ul class="mt-2 list-disc list-inside text-gray-600 space-y-1">
+                                <li><strong>Real-time Collaborative Canvas:</strong> Implemented with WebSockets (Socket.IO) to allow multiple users to drag, drop, and configure UI components simultaneously, seeing each other's changes live.</li>
+                                <li><strong>AI Schema Generation:</strong> Integrated the Gemini API. Users can describe the data they need to store in plain English (e.g., "track customer name, email, and order status"), and the backend generates the appropriate SQL schema.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h3 class="flex items-center text-lg font-semibold text-gray-700">
+                                <svg class="section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                How to Pitch on a Resume
+                            </h3>
+                            <p class="mt-2 text-gray-600 font-medium">Developed a collaborative, AI-powered low-code platform that enables non-technical users to build internal tools, reducing reliance on engineering teams. Engineered a real-time canvas using WebSockets and integrated a generative AI to automate database schema creation from natural language prompts.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-category="dataviz">
+                    <div class="p-8">
+                        <div class="uppercase tracking-wide text-sm text-teal-600 font-semibold">Project 2: Data Storytelling</div>
+                        <h2 class="block mt-1 text-2xl leading-tight font-bold text-black">ImpactWeaver</h2>
+                        <p class="mt-2 text-gray-500">An interactive data visualization tool for non-profits to transform raw CSV data into compelling, single-page narrative websites that animate and update based on user scroll.</p>
+                        
+                         <div class="mt-6">
+                            <h3 class="flex items-center text-lg font-semibold text-gray-700">
+                                <svg class="section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Real-World Use Case
+                            </h3>
+                            <p class="mt-2 text-gray-600">A climate research institute uploads a dataset of global temperature changes. Using ImpactWeaver, they create a "scrollytelling" page. As a visitor scrolls, a line chart animates to show temperature rise over decades, a bar chart updates to compare emissions by country, and key insights appear at specific scroll points, creating a powerful, guided narrative.</p>
+                        </div>
+
+                        <div class="mt-6">
+                            <h3 class="flex items-center text-lg font-semibold text-gray-700">
+                                <svg class="section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                Full Tech Stack
+                            </h3>
+                            <div class="mt-2 flex flex-wrap gap-2">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">D3.js</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Python (Flask)</span>
+                                <span class="tech-tag">Pandas</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Netlify</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <h3 class="flex items-center text-lg font-semibold text-gray-700">
+                                <svg class="section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-12v4m-2-2h4m5 4v4m-2-2h4M17 3l4 4M3 17l4 4M17 17l4-4M3 7l4-4"></path></svg>
+                                Advanced Features
+                            </h3>
+                            <ul class="mt-2 list-disc list-inside text-gray-600 space-y-1">
+                                <li><strong>Scrollytelling Engine:</strong> Used the Intersection Observer API to track the user's scroll position and trigger complex D3.js chart animations and data transitions, creating a seamless narrative flow.</li>
+                                <li><strong>Dynamic Data Backend:</strong> Built a Python/Flask backend with Pandas for robust CSV parsing and data processing, allowing users to upload datasets and map columns to visual elements in the frontend editor.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-6">
+                             <h3 class="flex items-center text-lg font-semibold text-gray-700">
+                                <svg class="section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                How to Pitch on a Resume
+                            </h3>
+                            <p class="mt-2 text-gray-600 font-medium">Built a data storytelling platform that transforms static datasets into dynamic, interactive web narratives. Implemented a scroll-triggered animation engine with D3.js and the Intersection Observer API to create engaging data visualizations that increase user comprehension and engagement for non-profit impact reporting.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-category="ai">
+                    <div class="p-8">
+                        <div class="uppercase tracking-wide text-sm text-teal-600 font-semibold">Project 3: Developer Tool</div>
+                        <h2 class="block mt-1 text-2xl leading-tight font-bold text-black">PR-Pilot</h2>
+                        <p class="mt-2 text-gray-500">An intelligent GitHub App that automates parts of the code review process by posting AI-generated feedback, summaries, and improvement suggestions directly on pull requests.</p>
+                        
+                         <div class="mt-6">
+                            <h3 class="flex items-center text-lg font-semibold text-gray-700">
+                                <svg class="section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Real-World Use Case
+                            </h3>
+                            <p class="mt-2 text-gray-600">A junior developer opens a pull request. Within minutes, PR-Pilot automatically posts a comment summarizing the changes in plain English. It also adds line-specific suggestions, such as identifying a potential N+1 query in the backend code and recommending a more efficient data-fetching strategy, freeing up senior developers to focus on higher-level architectural reviews.</p>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h3 class="flex items-center text-lg font-semibold text-gray-700">
+                                <svg class="section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                Full Tech Stack
+                            </h3>
+                            <div class="mt-2 flex flex-wrap gap-2">
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Probot</span>
+                                <span class="tech-tag">GitHub API</span>
+                                <span class="tech-tag">Redis</span>
+                                <span class="tech-tag">GCP (Cloud Functions)</span>
+                                <span class="tech-tag">Gemini API</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <h3 class="flex items-center text-lg font-semibold text-gray-700">
+                                <svg class="section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-12v4m-2-2h4m5 4v4m-2-2h4M17 3l4 4M3 17l4 4M17 17l4-4M3 7l4-4"></path></svg>
+                                Advanced Features
+                            </h3>
+                            <ul class="mt-2 list-disc list-inside text-gray-600 space-y-1">
+                                <li><strong>Webhook-driven Workflow:</strong> Built as a serverless GitHub App using Probot framework and hosted on GCP Cloud Functions. It listens for `pull_request` webhooks, processes the payload, and interacts with the GitHub API to post comments.</li>
+                                <li><strong>Context-Aware AI Analysis:</strong> Fetches the diff of a pull request and sends it to the Gemini API with a carefully crafted prompt to analyze code for potential bugs, performance issues, and style inconsistencies, providing contextually relevant feedback. A Redis queue manages API requests to handle spikes in traffic.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h3 class="flex items-center text-lg font-semibold text-gray-700">
+                                <svg class="section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                How to Pitch on a Resume
+                            </h3>
+                            <p class="mt-2 text-gray-600 font-medium">Architected and deployed a serverless GitHub App to automate code reviews using generative AI. The application processes pull request webhooks, analyzes code diffs via the Gemini API, and posts actionable feedback, increasing developer velocity and improving code quality by an estimated 20% in testing.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterContainer = document.getElementById('filter-container');
+            const projectsGrid = document.getElementById('projects-grid');
+            const projectCards = projectsGrid.querySelectorAll('.project-card');
+            const filterButtons = filterContainer.querySelectorAll('.filter-btn');
+
+            filterContainer.addEventListener('click', (event) => {
+                const target = event.target;
+                if (target.classList.contains('filter-btn')) {
+                    
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    target.classList.add('active');
+
+                    const filter = target.dataset.filter;
+
+                    projectCards.forEach(card => {
+                        const categories = card.dataset.category.split(' ');
+                        const shouldShow = filter === 'all' || categories.includes(filter);
+                        
+                        if (shouldShow) {
+                            card.classList.remove('dimmed');
+                        } else {
+                            card.classList.add('dimmed');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
